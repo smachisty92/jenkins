@@ -3,45 +3,27 @@ folder('Terraform') {
     description('Terraform')
 }
 
-freeStyleJob('Terraform/VPC') {
-    scm {
-        git {
-            remote {
-                name('origin')
-                url('https://github.com/smachisty92/terraform-vpc.git')
-            }
-        }
-    }
-    steps {
-        shell('make dev')
-    }
-}
+def jobs = [
+     [name : "VPC", git : "terraform-vpc"],
+     [name : "DB", git : "terraform-DB"]
+]
 
-freeStyleJob('Terraform/ALB') {
-    scm {
-        git {
-            remote {
-                name('origin')
-                url('https://github.com/smachisty92/terraform-mutable-alb.git')
+jobs.each {
+    def newmap = it;
+    //println("${it.name}: ${it.git}")
+    freeStyleJob("Terraform/${it.name}") {
+        scm {
+            git {
+                remote {
+                    name('origin')
+                    url("https://github.com/smachisty92/${it.git}")
+                }
             }
         }
+        steps {
+            shell('make')
+        }
     }
-    steps {
-        shell('make')
-    }
-}
 
-freeStyleJob('Terraform/DB') {
-    scm {
-        git {
-            remote {
-                name('origin')
-                url('https://github.com/smachisty92/terraform-databases.git')
-            }
-        }
-    }
-    steps {
-        shell('make')
-    }
 }
 
