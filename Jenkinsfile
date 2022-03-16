@@ -3,10 +3,15 @@
 pipeline {
   //agent {node { label 'workstation' }
   agent { label 'terraform' }
+  environment{
+    Test="google.com"
+  }
+
   stages {
     stage('Terraform INIT') {
       steps {
         sh 'echo hello'
+        sh 'echo ${Test}'
         }
       }
     stage('Terraform Plan') {
