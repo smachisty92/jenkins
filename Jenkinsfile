@@ -6,14 +6,14 @@ pipeline {
 
   environment{
     Test="google.com"
-    //Ssh=credentails('CENTOS_SSH')
+    SSH=credentials('CENTOS_SSH')
   }
   stages {
     stage('Terraform INIT') {
       steps {
         sh 'echo hello'
         sh 'echo ${Test}'
-        sh 'echo ${Ssh}'
+        sh 'echo ${SSH}'
         }
       }
     stage('Terraform Plan') {
