@@ -6,7 +6,7 @@ pipeline {
 
   environment{
     Test="google.com"
-    Ssh=credentails('CENTOS_SSH')
+    //Ssh=credentails('CENTOS_SSH')
   }
   stages {
     stage('Terraform INIT') {
