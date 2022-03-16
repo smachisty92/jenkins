@@ -19,6 +19,7 @@ jobs.each {
                     name('origin')
                     url("https://github.com/smachisty92/${x}.git")
                 }
+                branches('*/main')
             }
         }
         steps {
