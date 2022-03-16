@@ -5,7 +5,8 @@ folder('Terraform') {
 
 def jobs = [
      [name : "VPC", git : "terraform-vpc"],
-     [name : "DB", git : "terraform-DB"]
+     [name : "DB", git : "terraform-databases"],
+     [name : "ALB", git : "terraform-mutable-alb"]
 ]
 
 jobs.each {
