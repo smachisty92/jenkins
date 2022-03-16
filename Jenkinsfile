@@ -5,13 +5,14 @@ pipeline {
   agent { label 'terraform' }
   environment{
     Test="google.com"
+    SSH=credentails("CENTOS_SSH")
   }
-
   stages {
     stage('Terraform INIT') {
       steps {
         sh 'echo hello'
         sh 'echo ${Test}'
+        sh 'echo ${SSH}'
         }
       }
     stage('Terraform Plan') {
