@@ -11,12 +11,13 @@ def jobs = [
 jobs.each {
     def newmap = it;
     //println("${it.name}: ${it.git}")
+    x= it.git
     freeStyleJob("Terraform/${it.name}") {
         scm {
             git {
                 remote {
                     name('origin')
-                    url("https://github.com/smachisty92/${it.git}.git")
+                    url("https://github.com/smachisty92/${x}.git")
                 }
             }
         }
