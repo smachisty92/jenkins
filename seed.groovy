@@ -3,7 +3,7 @@ folder('Terraform') {
     description('Terraform')
 }
 
-freeStyleJob('Terraform-VPC') {
+freeStyleJob('Terraform/VPC') {
     scm {
         git {
             remote {
@@ -17,7 +17,7 @@ freeStyleJob('Terraform-VPC') {
     }
 }
 
-freeStyleJob('terraform-mutable-alb') {
+freeStyleJob('Terraform/ALB') {
     scm {
         git {
             remote {
@@ -31,7 +31,7 @@ freeStyleJob('terraform-mutable-alb') {
     }
 }
 
-freeStyleJob('terraform-databases') {
+freeStyleJob('Terraform/DB') {
     scm {
         git {
             remote {
