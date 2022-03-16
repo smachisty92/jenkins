@@ -20,4 +20,8 @@ pipeline {
            }
          }
     }
+
+    post {
+      sh "Hello"
+    }
   }
